@@ -4,10 +4,12 @@
   "scripts": {
     "postinstall": "node node_modules/protractor/bin/webdriver-manager update",
     "pretest": "",
-    "test": "node node_modules/protractor/built/cli.js protractor.config.js"
+    "local-test": "node node_modules/protractor/built/cli.js local_conf.js",
+    "sauce-test": "node node_modules/protractor/built/cli.js sauce_conf.js"
   },
   "dependencies": {
     "protractor": "^4.0.9",
-    "jasmine2-reporter": "^0.2.0"
+    "jasmine2-reporter": "^0.2.0",
+    "jasmine-reporters": "^2.2.0"
   }
 }
