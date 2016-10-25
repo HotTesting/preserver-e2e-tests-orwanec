@@ -5,9 +5,6 @@ const JasmineReporter = require('jasmine2-reporter').Jasmine2Reporter
 const JasmineReporterJenkins = require('jasmine-reporters').JUnitXmlReporter
 
 exports.config = {
-  // Will be used as URL to open pages with browser.get
-  baseUrl: 'http://www.hiteshbalar.com/preserver',
-
   // What specs files to load?
   specs: ['./specs/*_spec.js'],
 
@@ -18,11 +15,9 @@ exports.config = {
   framework: 'jasmine2',
 
   // Integration with SauceLabs
-  //sauceUser: process.env.SAUCE_USERNAME,
-  //sauceKey: process.env.SAUCE_ACCESS_KEY,
-  // sauceUser: 'bla bla',
-  // sauceKey: 'bla bla',
-  sauceBuild: `Web: ${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`,
+  // sauceUser: process.env.SAUCE_USERNAME,
+  // sauceKey: process.env.SAUCE_ACCESS_KEY,
+  // sauceBuild: `Web: ${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`,
 
   /**
    Browser properties, also called as DesiredCapabilities.
@@ -30,12 +25,6 @@ exports.config = {
    Documentation for NOT FULL list of capabilites could be found here:
    https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities
    */
-  // capabilities: {
-  //     'browserName': 'chrome',
-  //     //'name': `${date.getFullYear()}/${date.getMonth() +1}/${date.getDate()}
-  // ${date.getHours()}:${date.getMinutes()}:${date.getMilliseconds()} `,
-  // },
-
   // running a number of browsers at the same time
   multiCapabilities: [
     // {
@@ -59,7 +48,7 @@ exports.config = {
 
     // Setting global beforeAll for all tests.
     beforeAll(function () {
-      browser.get('/')
+      browser.get(browser.params.baseUrl)
     })
     // Global afterEach for all tests
     afterAll(function () {

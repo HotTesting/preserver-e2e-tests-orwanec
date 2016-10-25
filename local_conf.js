@@ -1,11 +1,8 @@
-const date = new Date()
-
 // Defining nice console reporter
 const JasmineReporter = require('jasmine2-reporter').Jasmine2Reporter
 
 exports.config = {
   // Will be used as URL to open pages with browser.get
-  baseUrl: 'http://www.hiteshbalar.com/preserver',
 
   // What specs files to load?
   specs: ['./specs/*_spec.js'],
@@ -22,10 +19,6 @@ exports.config = {
    Documentation for NOT FULL list of capabilites could be found here:
    https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities
    */
-  // capabilities: {
-  //     'browserName': 'chrome',
-  // },
-
   // running a number of browsers at the same time
   multiCapabilities: [
     // {
@@ -49,7 +42,7 @@ exports.config = {
 
     // Setting global beforeAll for all test suites.
     beforeAll(function () {
-      browser.get('/')
+      browser.get(browser.params.baseUrl)
     })
     // Global beforeEach for all tests (aka. it)
     beforeEach(function () {

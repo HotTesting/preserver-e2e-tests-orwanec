@@ -7,12 +7,12 @@ describe('Task page', function () {
   const archiveNotesPage = new ArchiveNotesPage()
 
   it('should have correct title', function () {
-    expect(browser.getTitle()).toBe('???',
+    expect(browser.getTitle()).toBe('Preserver',
       'Title not found')
   })
 
-  it('should create the task', function () {
-    //
+  it('should create the task with title only', function () {
+
   })
 
 })
