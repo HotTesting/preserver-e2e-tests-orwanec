@@ -4,7 +4,7 @@
   "scripts": {
     "postinstall": "node node_modules/protractor/bin/webdriver-manager update",
     "pretest": "",
-    "local-test": "node node_modules/protractor/built/cli.js local_conf.js --baseUrl='https://www.hiteshbalar.com/preserver'",
+    "local-test": "node node_modules/protractor/built/cli.js local_conf.js",
     "sauce-test": "node node_modules/protractor/built/cli.js sauce_conf.js --baseUrl='https://www.hiteshbalar.com/preserver'"
   },
   "dependencies": {

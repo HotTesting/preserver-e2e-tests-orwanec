@@ -55,7 +55,7 @@ exports.config = {
       // Wiping cookie files ONLY for current domain
       browser.manage().deleteAllCookies()
       // Wiping local and session storage
-      browser.executeScript('window.sessionStorage.clear() window.localStorage.clear()')
+      browser.executeScript('window.sessionStorage.clear(); window.localStorage.clear();')
         .then(undefined,
           function (err) {
             // Errors will be thrown when browser is on default data URL.

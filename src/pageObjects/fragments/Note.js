@@ -1,28 +1,31 @@
-class Note {
-  constructor() {
-    this.archiveLink = $("a[title='Archive']")
-    this.colorLink = $("a[title='Color']")
-    this.deleteLink = $("a[title='Delete']")
+let EC = protractor.ExpectedConditions;
 
-    this.colorGray = $(".dropdown-menu .btn-default")
-    this.colorOrange = $(".dropdown-menu .btn-primary")
-    this.colorGreen = $(".dropdown-menu .btn-success")
-    this.colorBlue = $(".dropdown-menu .btn-info")
+class Note {
+  constructor(noteElement) {
+    this.noteElement = noteElement;
     
+    this.colorLink = noteElement.$("a[title='Color']");
+    this.deleteLink = noteElement.$("a[title='Delete']");
+    this.deleteForeverLink = noteElement.$("a[title='Delete forever']")
+
+    this.colorGray = noteElement.$(".dropdown-menu .btn-default")
+    this.colorOrange = noteElement.$(".dropdown-menu .btn-primary")
+    this.colorGreen = noteElement.$(".dropdown-menu .btn-success")
+    this.colorBlue = noteElement.$(".dropdown-menu .btn-info")
+
   }
   isShown() {
-    return this.playerElement.$('.player-controls').isDisplayed()
-      .then(undefined, err => false)
+    return EC.visibilityOf(this.noteElement.$('.note-footer')) ()
+    //return this.noteElement.$('.note-footer').isDisplayed()
+    //   .then(undefined, err => false)
+  }
+  
+
+  remove() {
+    this.deleteLink.click()
   }
 
-  moveToArchive() {
-    this.archiveLink.click()
-  }
-
-  moveToMyNotes() {
-    this.archiveLink.click()
-  }
-
+  // TODO implement the method below
   hasColor(colorName){
     // looking for a specific class name
     // .class=label-info
@@ -31,13 +34,11 @@ class Note {
     // .class=label-darkgray
   }
 
-  deleteNote() {
+  // TODO implement the method below
+  changeColor(){
     //
   }
-
-  fullDeleteNote() {
-    //
-  }
+  
 }
 
 module.exports = Note

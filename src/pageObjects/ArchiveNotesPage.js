@@ -1,9 +1,20 @@
 const BaseNotesPage = require('./BaseNotesPage')
+const ArchivedNote = require('./fragments/ArchivedNote')
 
 class ArchiveNotesPage extends BaseNotesPage {
   constructor() {
-    // this.note.archiveLink = $("a[title='Unarchive']")
+    super()
+      
   }
+
+  /**
+   * @param {int} index - number starting from 0
+   * @returns {Note} Note object on the page
+   */
+  notes(index) {
+    return new ArchivedNote(this.noteCards.get(index));
+  }
+
 }
 
 module.exports = ArchiveNotesPage

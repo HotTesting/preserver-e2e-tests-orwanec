@@ -2,10 +2,11 @@
 const JasmineReporter = require('jasmine2-reporter').Jasmine2Reporter
 
 exports.config = {
-  // Will be used as URL to open pages with browser.get
 
+  baseUrl: 'https://www.hiteshbalar.com',
   // What specs files to load?
-  specs: ['./specs/*_spec.js'],
+  //specs: ['./specs/*_spec.js'],
+  specs: ['./specs/createTask_spec.js'],
 
   // Allows us to not start selenium server for tests. Useful for development.
   directConnect: true,
@@ -42,18 +43,18 @@ exports.config = {
 
     // Setting global beforeAll for all test suites.
     beforeAll(function () {
-      browser.get(browser.params.baseUrl)
+      //browser.get('/')
     })
     // Global beforeEach for all tests (aka. it)
     beforeEach(function () {
-      //
+      browser.get('/preserver')
     })
     // Global afterAll for all test suits
     afterAll(function () {
       // Wiping cookie files ONLY for current domain
       browser.manage().deleteAllCookies()
       // Wiping local and session storage
-      browser.executeScript('window.sessionStorage.clear() window.localStorage.clear()')
+      browser.executeScript('window.sessionStorage.clear(); window.localStorage.clear();')
         .then(undefined,
           function (err) {
             // Errors will be thrown when browser is on default data URL.
