@@ -15,7 +15,8 @@ class Note {
 
   }
   isShown() {
-    return EC.visibilityOf(this.noteElement.$('.note-footer')) ()
+    return browser.wait(EC.visibilityOf(this.noteElement), 3000)
+    .then(()=> true, err=> false)
     //return this.noteElement.$('.note-footer').isDisplayed()
     //   .then(undefined, err => false)
   }
